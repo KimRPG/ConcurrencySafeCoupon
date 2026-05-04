@@ -6,14 +6,17 @@
 
 ## DB 구조
 
-### ERD
+<details>
+<summary>ERD</summary>
 
 ![ERD](docs/erd.png)
 
-### 테이블 설명
+</details>
 
-#### coupon
-쿠폰 원본 정보 및 발급 정책을 관리합니다.
+---
+
+<details>
+<summary>coupon — 쿠폰 원본 정보 및 발급 정책</summary>
 
 | 컬럼 | 타입 | 설명 |
 |------|------|------|
@@ -31,8 +34,12 @@
 | start_date | DATETIME | 발급 시작일 |
 | end_date | DATETIME | 발급 종료일 |
 
-#### issued_coupon
-사용자에게 발급된 쿠폰 내역을 관리합니다.
+</details>
+
+---
+
+<details>
+<summary>issued_coupon — 사용자에게 발급된 쿠폰 내역</summary>
 
 | 컬럼 | 타입 | 설명 |
 |------|------|------|
@@ -46,8 +53,12 @@
 
 > `(coupon_id, user_id)` UNIQUE 제약으로 동일 사용자 중복 발급을 DB 레벨에서 방지합니다.
 
-#### coupon_usage_history
-쿠폰 사용 이력을 관리합니다.
+</details>
+
+---
+
+<details>
+<summary>coupon_usage_history — 쿠폰 사용 이력</summary>
 
 | 컬럼 | 타입 | 설명 |
 |------|------|------|
@@ -58,8 +69,4 @@
 | discount_amount | INT | 적용 할인 금액 |
 | used_at | DATETIME | 사용일시 |
 
-### 관계
-
-```
-coupon 1 ─── N issued_coupon 1 ─── N coupon_usage_history
-```
+</details>
