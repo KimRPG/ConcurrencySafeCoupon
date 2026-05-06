@@ -40,12 +40,11 @@ MySQL 영구 저장 (UNIQUE constraint 최후 보루)
 ## 구현 순서 (의존성 순서 준수)
 
 ### Phase 1 — 인프라 설정 (3개 파일)
-1. `docker-compose.yml` — MySQL 8.0, Redis 7, Kafka (KRaft mode)
+1. `docker-compose.yml` — MySQL 8.0, Redis 7, Kafka (KRaft mode), Grafana, Prometheus(모니터링)
 2. `src/main/resources/application.properties` — DB/Redis/Kafka 연결 설정
 3. `build.gradle` — Jackson 의존성 추가 (`jackson-databind`, `jackson-datatype-jsr310`)
 
 ### Phase 2 — 도메인 열거형 + 베이스 (4개 파일)
-4. `domain/common/BaseTimeEntity.java` — `@MappedSuperclass` + createdAt/updatedAt
 5. `domain/coupon/CouponType.java` — `FIXED_AMOUNT, PERCENTAGE`
 6. `domain/coupon/CouponStatus.java` — `ACTIVE, INACTIVE, EXHAUSTED, EXPIRED`
 7. `domain/issuedcoupon/IssuedCouponStatus.java` — `ISSUED, USED, EXPIRED, CANCELLED`
