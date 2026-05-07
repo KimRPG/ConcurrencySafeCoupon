@@ -29,3 +29,10 @@ build/
 
 # macOS
 .DS_Store
+
+# IntelliJ IDEA
+.idea/
+
+# Application properties (sensitive info)
+src/main/resources/application.properties
+src/main/resources/application-*.properties
